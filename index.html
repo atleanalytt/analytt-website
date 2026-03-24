@@ -219,13 +219,52 @@
         border: 1px solid color-mix(in srgb, var(--site-bg) 20%, transparent);
         background: var(--secondary-accent);
         padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .hero-badge img {
+      .hero-sweep {
+        position: absolute;
+        inset: 0;
+        opacity: 0.5;
+        background-image: url("assets/ribbon-eternal-red.png");
+        background-repeat: repeat-x;
+        background-size: 560px auto;
+        background-position: 0 50%;
+        animation: heroSweep 9.5s linear infinite;
+        transition: opacity 0.45s ease;
+      }
+
+      .hero-overlay {
         width: 100%;
-        max-width: 280px;
+        max-width: 240px;
         display: block;
         margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      .hero-badge:hover .hero-overlay {
+        opacity: 0.92;
+      }
+
+      .hero-badge:hover .hero-sweep {
+        opacity: 0;
+      }
+
+      @keyframes heroSweep {
+        from {
+          background-position: 0 50%;
+        }
+        to {
+          background-position: -560px 50%;
+        }
       }
 
       section {
@@ -428,7 +467,9 @@
           </div>
 
           <aside class="hero-badge" aria-label="Analytt symbol">
+            <div class="hero-sweep" aria-hidden="true"></div>
             <img
+              class="hero-overlay"
               src="assets/analytt-symbol-red.svg"
               alt="Analytt symbol"
             />
