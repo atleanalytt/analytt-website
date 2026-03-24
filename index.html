@@ -257,6 +257,58 @@
         padding: 1.25rem;
       }
 
+      .partners-wrap {
+        width: 100%;
+        background: color-mix(in srgb, white 82%, var(--secondary-accent) 18%);
+        border-top: 1px solid color-mix(in srgb, var(--secondary-accent) 14%, transparent);
+        border-bottom: 1px solid color-mix(in srgb, var(--secondary-accent) 14%, transparent);
+        padding: 1.2rem clamp(1rem, 4vw, 2.8rem);
+      }
+
+      .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: clamp(0.9rem, 2vw, 1.6rem);
+        align-items: center;
+      }
+
+      .partner-item {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+      }
+
+      .partner-item a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 64px;
+      }
+
+      .partner-item img {
+        max-width: 100%;
+        max-height: 38px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: grayscale(100%) sepia(42%) hue-rotate(330deg) saturate(210%) brightness(0.88) contrast(0.96);
+      }
+
+      .partner-logo--cognite {
+        max-height: 56px;
+      }
+
+      .partner-logo--statkraft {
+        max-height: 52px;
+      }
+
+      .partner-logo--capgemini {
+        max-height: 52px;
+      }
+
       .pill {
         display: inline-flex;
         font-size: 0.82rem;
@@ -306,6 +358,10 @@
         .card-grid {
           grid-template-columns: 1fr;
         }
+
+        .partners-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 720px) {
@@ -337,7 +393,6 @@
           <ul>
             <li><a href="#services" data-no="Kompetanser" data-en="Services">Kompetanser</a></li>
             <li><a href="#products" data-no="Produkter" data-en="Products">Produkter</a></li>
-            <li><a href="#about" data-no="Om oss" data-en="About">Om oss</a></li>
             <li><a href="#contact" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
           </ul>
         </nav>
@@ -414,6 +469,38 @@
         </div>
       </section>
 
+      <section id="partners">
+        <div class="partners-wrap">
+          <div class="partners-grid">
+            <div class="partner-item">
+              <a href="https://www.cognite.com/" target="_blank" rel="noopener">
+                <img class="partner-logo--cognite" src="assets/partners/cognite.png" alt="Cognite" />
+              </a>
+            </div>
+            <div class="partner-item">
+              <a href="https://www.statkraft.com/" target="_blank" rel="noopener">
+                <img class="partner-logo--statkraft" src="assets/partners/statkraft.png" alt="Statkraft" />
+              </a>
+            </div>
+            <div class="partner-item">
+              <a href="https://www.folq.no/" target="_blank" rel="noopener">
+                <img src="assets/partners/folq.png" alt="Folq" />
+              </a>
+            </div>
+            <div class="partner-item">
+              <a href="https://witted.com/" target="_blank" rel="noopener">
+                <img src="assets/partners/witted.svg" alt="Witted" />
+              </a>
+            </div>
+            <div class="partner-item">
+              <a href="https://www.capgemini.com/" target="_blank" rel="noopener">
+                <img class="partner-logo--capgemini" src="assets/partners/capgemini.png" alt="Capgemini" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="products">
         <div class="container">
           <h2 data-lang="no" class="active">Produkter</h2>
@@ -434,20 +521,6 @@
         </div>
       </section>
 
-      <section id="about">
-        <div class="container">
-          <h2 data-lang="no" class="active">Om oss</h2>
-          <h2 data-lang="en">About</h2>
-          <p data-lang="no" class="lead active">
-            Analytt er et konsulentselskap som spesialiserer seg innen data- og analyseløsninger.
-            Vi bygger egne tjenester eller hjelper med å konfigurere eksisterende verktøy.
-          </p>
-          <p data-lang="en" class="lead">
-            Analytt is a consulting company specialized in data and analytics solutions.
-            We build our own services and help configure existing tools.
-          </p>
-        </div>
-      </section>
     </main>
 
     <footer id="contact">
@@ -474,7 +547,6 @@
         var topbar = document.querySelector(".topbar");
         var brandLogo = document.getElementById("brand-logo");
         var logoRed = "assets/analytt-logo-red.svg";
-        var logoTurquoise = "assets/analytt-logo-turquoise.svg";
 
         function setLanguage(lang) {
           html.lang = lang === "no" ? "no" : "en";
