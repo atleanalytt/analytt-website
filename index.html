@@ -250,11 +250,66 @@
         transition: opacity 0.35s ease;
       }
 
+      .hero-ticker {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 75%;
+        transform: translateY(-50%);
+        overflow: hidden;
+        z-index: 1;
+        opacity: 0.82;
+        transition: opacity 0.35s ease;
+      }
+
+      .hero-track {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+        gap: 0;
+        white-space: nowrap;
+        animation: heroTicker 28s linear infinite;
+        font-family: "Literata", Georgia, serif;
+        color: color-mix(in srgb, var(--link-accent) 88%, white 12%);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-line {
+        white-space: nowrap;
+      }
+
+      .hero-brand-hover {
+        text-align: center;
+        font-family: "Literata", Georgia, serif;
+        letter-spacing: 0.02em;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: color-mix(in srgb, var(--link-accent) 88%, white 12%);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 75%;
+        transform: translateY(-50%);
+        z-index: 3;
+      }
+
       .hero-badge:hover .hero-overlay {
         opacity: 0.92;
       }
 
+      .hero-badge:hover .hero-brand-hover {
+        opacity: 0.82;
+      }
+
       .hero-badge:hover .hero-sweep {
+        opacity: 0;
+      }
+
+      .hero-badge:hover .hero-ticker {
         opacity: 0;
       }
 
@@ -264,6 +319,15 @@
         }
         to {
           background-position: -560px 50%;
+        }
+      }
+
+      @keyframes heroTicker {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
         }
       }
 
@@ -468,11 +532,24 @@
 
           <aside class="hero-badge" aria-label="Analytt symbol">
             <div class="hero-sweep" aria-hidden="true"></div>
+            <div class="hero-ticker active" data-lang="no" aria-hidden="true">
+              <div class="hero-track">
+                <span class="hero-line">Dataplattform — Analyse — API — Produktutvikling — Innsikt — Automatisering — DevOps — Sky — Maskinlæring — Rapportering — Integrasjoner — Datavarehus — Datasjø — Strømmedata — Datamodellering — Datakvalitet — ETL/ELT — BI — Dashboard — Arkitektur — Dataplattform — Analyse — API — Produktutvikling — Innsikt — Automatisering — DevOps — Sky —</span>
+                <span class="hero-line">Dataplattform — Analyse — API — Produktutvikling — Innsikt — Automatisering — DevOps — Sky — Maskinlæring — Rapportering — Integrasjoner — Datavarehus — Datasjø — Strømmedata — Datamodellering — Datakvalitet — ETL/ELT — BI — Dashboard — Arkitektur — Dataplattform — Analyse — API — Produktutvikling — Innsikt — Automatisering — DevOps — Sky —</span>
+              </div>
+            </div>
+            <div class="hero-ticker" data-lang="en" aria-hidden="true">
+              <div class="hero-track">
+                <span class="hero-line">Data Platform — Analytics — API — Product Development — Insights — Automation — DevOps — Cloud — Machine Learning — Reporting — Integrations — Data Warehouse — Data Lake — Streaming Data — Data Modeling — Data Quality — ETL/ELT — BI — Dashboards — Architecture — Data Platform — Analytics — API — Product Development — Insights — Automation — DevOps — Cloud —</span>
+                <span class="hero-line">Data Platform — Analytics — API — Product Development — Insights — Automation — DevOps — Cloud — Machine Learning — Reporting — Integrations — Data Warehouse — Data Lake — Streaming Data — Data Modeling — Data Quality — ETL/ELT — BI — Dashboards — Architecture — Data Platform — Analytics — API — Product Development — Insights — Automation — DevOps — Cloud —</span>
+              </div>
+            </div>
             <img
               class="hero-overlay"
               src="assets/analytt-symbol-red.svg"
               alt="Analytt symbol"
             />
+            <div class="hero-brand-hover">Analytt</div>
           </aside>
         </div>
       </section>
