@@ -1,11 +1,457 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Analytt - Data & Product Studio</title>
+    <meta
+      name="description"
+      content="Analytt helps organizations become data-driven and build modern products."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-accent: #bef0e6;
+        --secondary-accent: #004650;
+        --site-bg: #fffae6;
+        --text-color: #004650;
+        --link-accent: #f05a3c;
+        --card-bg: #fffdf2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        color: var(--text-color);
+        background: var(--site-bg);
+      }
+
+      a {
+        color: var(--link-accent);
+      }
+
+      .container {
+        width: min(1100px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: color-mix(in srgb, var(--site-bg) 88%, white);
+        border-bottom: 1px solid color-mix(in srgb, var(--secondary-accent) 16%, transparent);
+        backdrop-filter: blur(6px);
+      }
+
+      .topbar-inner {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+
+      .brand img {
+        width: 118px;
+        height: auto;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.1rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--secondary-accent);
+        font-weight: 600;
+      }
+
+      .lang-toggle {
+        border: 1px solid var(--secondary-accent);
+        border-radius: 999px;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .lang-toggle button {
+        border: 0;
+        background: transparent;
+        color: var(--secondary-accent);
+        font: inherit;
+        font-weight: 600;
+        padding: 0.4rem 0.75rem;
+        cursor: pointer;
+      }
+
+      .lang-toggle button.active {
+        background: var(--secondary-accent);
+        color: #fff;
+      }
+
+      .hero {
+        padding: 5rem 0 3.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+      }
+
+      h1,
+      h2 {
+        font-family: "Literata", Georgia, serif;
+        margin: 0 0 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        line-height: 1.15;
+      }
+
+      h2 {
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+      }
+
+      .lead {
+        font-size: clamp(1.02rem, 2vw, 1.2rem);
+        line-height: 1.65;
+        max-width: 60ch;
+      }
+
+      .button-row {
+        margin-top: 1.6rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0.75rem 1.15rem;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.15s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: var(--link-accent);
+        color: #fff;
+      }
+
+      .button-secondary {
+        background: var(--primary-accent);
+        color: var(--secondary-accent);
+      }
+
+      .hero-badge {
+        border-radius: 24px;
+        border: 1px solid color-mix(in srgb, var(--secondary-accent) 20%, transparent);
+        background: var(--card-bg);
+        padding: 1.5rem;
+      }
+
+      .hero-badge img {
+        width: 100%;
+        max-width: 280px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 2.6rem 0;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid color-mix(in srgb, var(--secondary-accent) 14%, transparent);
+        border-radius: 16px;
+        padding: 1.1rem 1rem;
+      }
+
+      .card h3 {
+        margin: 0 0 0.5rem;
+        font-family: "Literata", Georgia, serif;
+      }
+
+      .product-highlight {
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--primary-accent), #d5f7f0);
+        border: 1px solid color-mix(in srgb, var(--secondary-accent) 20%, transparent);
+        padding: 1.25rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-radius: 999px;
+        background: var(--secondary-accent);
+        color: #fff;
+        padding: 0.36rem 0.7rem;
+      }
+
+      footer {
+        margin-top: 2rem;
+        background: var(--secondary-accent);
+        color: #fff;
+      }
+
+      .footer-inner {
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-inner a {
+        color: #fff;
+      }
+
+      [data-lang]:not(.active) {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .topbar-inner {
+          flex-wrap: wrap;
+          padding: 0.7rem 0;
+        }
+
+        nav {
+          width: 100%;
+          order: 3;
+        }
+
+        nav ul {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 0.3rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#top" aria-label="Analytt home">
+          <img src="https://analytt.no/wp-content/uploads/2021/02/Analytt-logo-RGB-turkis.png" alt="Analytt" />
+        </a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#services" data-no="Kompetanser" data-en="Services">Kompetanser</a></li>
+            <li><a href="#products" data-no="Produkter" data-en="Products">Produkter</a></li>
+            <li><a href="#about" data-no="Om oss" data-en="About">Om oss</a></li>
+            <li><a href="#contact" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle" aria-label="Language switcher">
+          <button type="button" data-lang-btn="no" class="active">NO</button>
+          <button type="button" data-lang-btn="en">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1 data-lang="no" class="active">Bli datadrevet. Bygg produkter som virker.</h1>
+            <h1 data-lang="en">Become data-driven. Build products that work.</h1>
+
+            <p data-lang="no" class="lead active">
+              Analytt hjelper organisasjoner med dataplattformer, analyser og moderne produktutvikling.
+              Vi kombinerer strategi og teknisk gjennomføring for å skape løsninger som gir varig verdi.
+            </p>
+            <p data-lang="en" class="lead">
+              Analytt helps organizations with data platforms, analytics, and modern product development.
+              We combine strategy and technical execution to create solutions with lasting value.
+            </p>
+
+            <div class="button-row">
+              <a class="button button-primary active" href="mailto:hei@analytt.no" data-lang="no">Skriv til oss</a>
+              <a class="button button-primary" href="mailto:hei@analytt.no" data-lang="en">Contact us</a>
+              <a class="button button-secondary active" href="#products" data-lang="no">Se produkter</a>
+              <a class="button button-secondary" href="#products" data-lang="en">View products</a>
+            </div>
+          </div>
+
+          <aside class="hero-badge" aria-label="Analytt symbol">
+            <img
+              src="https://analytt.no/wp-content/uploads/2021/02/Analytt-bomaerke-RGB-roed-1.png"
+              alt="Analytt symbol"
+            />
+          </aside>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <h2 data-lang="no" class="active">Kompetanser</h2>
+          <h2 data-lang="en">Services</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3 data-lang="no" class="active">Dataplattform og infrastruktur</h3>
+              <h3 data-lang="en">Data Platform and Infrastructure</h3>
+              <p data-lang="no" class="active">Datavarehus, datasjø, API-er og strømmedata i Azure, AWS og GCP.</p>
+              <p data-lang="en">Data warehouses, data lakes, APIs, and streaming data in Azure, AWS, and GCP.</p>
+            </article>
+            <article class="card">
+              <h3 data-lang="no" class="active">Analyse og rapportering</h3>
+              <h3 data-lang="en">Analytics and Reporting</h3>
+              <p data-lang="no" class="active">Fra innsiktsarbeid til dashboards og beslutningsgrunnlag.</p>
+              <p data-lang="en">From insight work to dashboards and decision support.</p>
+            </article>
+            <article class="card">
+              <h3 data-lang="no" class="active">Maskinlæring</h3>
+              <h3 data-lang="en">Machine Learning</h3>
+              <p data-lang="no" class="active">Praktisk bruk av ML for automatisering og bedre prosesser.</p>
+              <p data-lang="en">Practical ML for automation and better business processes.</p>
+            </article>
+            <article class="card">
+              <h3 data-lang="no" class="active">Produktutvikling</h3>
+              <h3 data-lang="en">Product Development</h3>
+              <p data-lang="no" class="active">Vi bygger egne produkter og hjelper kunder fra ide til lansering.</p>
+              <p data-lang="en">We build our own products and help clients from idea to launch.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="products">
+        <div class="container">
+          <h2 data-lang="no" class="active">Produkter</h2>
+          <h2 data-lang="en">Products</h2>
+          <div class="product-highlight">
+            <span class="pill active" data-lang="no">Snart i App Store</span>
+            <span class="pill" data-lang="en">Coming soon to the App Store</span>
+            <h3>Lyckeli</h3>
+            <p data-lang="no" class="active">
+              Vi utvikler <a href="https://lyckeli.app" target="_blank" rel="noopener">lyckeli.app</a>,
+              et nytt produkt fra Analytt. Mer informasjon kommer snart.
+            </p>
+            <p data-lang="en">
+              We are building <a href="https://lyckeli.app" target="_blank" rel="noopener">lyckeli.app</a>,
+              a new product from Analytt. More details coming soon.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 data-lang="no" class="active">Om oss</h2>
+          <h2 data-lang="en">About</h2>
+          <p data-lang="no" class="lead active">
+            Analytt er et konsulentselskap som spesialiserer seg innen data- og analyselosninger.
+            Vi bygger egne tjenester eller hjelper med a konfigurere eksisterende verktoy.
+          </p>
+          <p data-lang="en" class="lead">
+            Analytt is a consulting company specialized in data and analytics solutions.
+            We build our own services and help configure existing tools.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container footer-inner">
+        <div>
+          <strong>Analytt</strong><br />
+          <a href="mailto:hei@analytt.no">hei@analytt.no</a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/company/analytt/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var buttons = document.querySelectorAll("[data-lang-btn]");
+        var html = document.documentElement;
+
+        function setLanguage(lang) {
+          html.lang = lang === "no" ? "no" : "en";
+
+          document.querySelectorAll("[data-lang]").forEach(function (el) {
+            el.classList.toggle("active", el.getAttribute("data-lang") === lang);
+          });
+
+          buttons.forEach(function (btn) {
+            btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang);
+          });
+
+          document.querySelectorAll("[data-no][data-en]").forEach(function (el) {
+            el.textContent = lang === "no" ? el.getAttribute("data-no") : el.getAttribute("data-en");
+          });
+
+          localStorage.setItem("analytt-lang", lang);
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setLanguage(btn.getAttribute("data-lang-btn"));
+          });
+        });
+
+        var initialLang = localStorage.getItem("analytt-lang") || "no";
+        setLanguage(initialLang);
+      })();
+    </script>
   </body>
 </html>
