@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Analytt AS - Personvern og cookies</title>
+    <meta
+      name="description"
+      content="Personvern- og cookieinformasjon for Analytt AS."
+    />
+    <link rel="canonical" href="https://analytt.no/privacy/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Analytt AS - Personvern og cookies" />
+    <meta property="og:description" content="Personvern- og cookieinformasjon for Analytt AS." />
+    <meta property="og:url" content="https://analytt.no/privacy/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-accent: #bef0e6;
+        --secondary-accent: #004650;
+        --site-bg: #fffae6;
+        --text-color: #004650;
+        --link-accent: #f05a3c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        color: var(--text-color);
+        background: var(--site-bg);
+      }
+
+      .container {
+        width: min(1100px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--secondary-accent);
+        border-bottom: 1px solid color-mix(in srgb, var(--site-bg) 26%, transparent);
+        backdrop-filter: blur(6px);
+      }
+
+      .topbar-inner {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand img {
+        width: 118px;
+        height: auto;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.1rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--site-bg);
+        font-weight: 600;
+      }
+
+      .lang-toggle {
+        border: 1px solid var(--site-bg);
+        border-radius: 999px;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .lang-toggle button {
+        border: 0;
+        background: transparent;
+        color: var(--site-bg);
+        font: inherit;
+        font-weight: 600;
+        padding: 0.4rem 0.75rem;
+        cursor: pointer;
+      }
+
+      .lang-toggle button.active {
+        background: var(--site-bg);
+        color: var(--secondary-accent);
+      }
+
+      main {
+        padding: 2.4rem 0 3rem;
+      }
+
+      h1,
+      h2 {
+        font-family: "Literata", Georgia, serif;
+      }
+
+      .card {
+        background: #fffdf2;
+        border: 1px solid rgba(0, 70, 80, 0.16);
+        border-radius: 14px;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      a {
+        color: var(--link-accent);
+      }
+
+      [data-lang]:not(.active) {
+        display: none;
+      }
+
+      @media (max-width: 720px) {
+        .topbar-inner {
+          flex-wrap: wrap;
+          padding: 0.7rem 0;
+        }
+
+        nav {
+          width: 100%;
+          order: 3;
+        }
+
+        nav ul {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 0.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="../index.html#top" aria-label="Analytt home">
+          <img src="../assets/analytt-logo-red.svg" alt="Analytt" />
+        </a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#services" data-no="Kompetanser" data-en="Services">Kompetanser</a></li>
+            <li><a href="../index.html#products" data-no="Produkter" data-en="Products">Produkter</a></li>
+            <li><a href="../index.html#about" data-no="Om oss" data-en="About">Om oss</a></li>
+            <li><a href="../index.html#contact" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle" aria-label="Language switcher">
+          <button type="button" data-lang-btn="no" class="active">NO</button>
+          <button type="button" data-lang-btn="en">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 data-lang="no" class="active">Personvern og cookies</h1>
+        <h1 data-lang="en">Privacy and cookies</h1>
+
+        <section class="card">
+          <h2 data-lang="no" class="active">1. Behandlingsansvarlig</h2>
+          <h2 data-lang="en">1. Data controller</h2>
+          <p data-lang="no" class="active">
+            Analytt AS er behandlingsansvarlig for personopplysninger som sendes via nettsiden.
+          </p>
+          <p data-lang="en">
+            Analytt AS is the data controller for personal data submitted through this website.
+          </p>
+          <p>
+            E-post / Email:
+            <a href="mailto:hei@analytt.no">hei@analytt.no</a>
+          </p>
+          <p>
+            Org.nr: 927 209 969<br />
+            Adresse: St. Halvards gate 1E, 0192 Oslo, Norge
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 data-lang="no" class="active">2. Hvilke data vi behandler</h2>
+          <h2 data-lang="en">2. What data we process</h2>
+          <p data-lang="no" class="active">
+            Vi behandler kun informasjon du selv sender til oss, for eksempel via e-post.
+          </p>
+          <p data-lang="en">
+            We only process information you choose to send us, for example through email.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 data-lang="no" class="active">3. Cookies</h2>
+          <h2 data-lang="en">3. Cookies</h2>
+          <p data-lang="no" class="active">
+            Denne nettsiden bruker ikke analyse- eller markedsføringscookies.
+            Kun teknisk nødvendige funksjoner kan brukes for å vise innhold korrekt.
+          </p>
+          <p data-lang="en">
+            This website does not use analytics or marketing cookies.
+            Only technically necessary functionality may be used to render content correctly.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 data-lang="no" class="active">4. Dine rettigheter</h2>
+          <h2 data-lang="en">4. Your rights</h2>
+          <p data-lang="no" class="active">
+            Du kan be om innsyn, retting eller sletting av personopplysninger ved å kontakte oss på e-post.
+          </p>
+          <p data-lang="en">
+            You may request access, correction, or deletion of personal data by contacting us by email.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        var buttons = document.querySelectorAll("[data-lang-btn]");
+        var html = document.documentElement;
+
+        function setLanguage(lang) {
+          html.lang = lang === "no" ? "no" : "en";
+          document.querySelectorAll("[data-lang]").forEach(function (el) {
+            el.classList.toggle("active", el.getAttribute("data-lang") === lang);
+          });
+          buttons.forEach(function (btn) {
+            btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang);
+          });
+          document.querySelectorAll("[data-no][data-en]").forEach(function (el) {
+            el.textContent = lang === "no" ? el.getAttribute("data-no") : el.getAttribute("data-en");
+          });
+          localStorage.setItem("analytt-lang", lang);
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setLanguage(btn.getAttribute("data-lang-btn"));
+          });
+        });
+
+        setLanguage(localStorage.getItem("analytt-lang") || "no");
+      })();
+    </script>
+  </body>
+</html>

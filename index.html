@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Analytt - Data & Product Studio</title>
+    <title>Analytt AS - Data, analyse og produktutvikling</title>
     <meta
       name="description"
-      content="Analytt helps organizations become data-driven and build modern products."
+      content="Analytt AS hjelper organisasjoner med dataplattformer, analyse og produktutvikling. Vi bygger ogsa produkter som lykkeli.app."
     />
+    <link rel="canonical" href="https://analytt.no/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Analytt AS - Data, analyse og produktutvikling" />
+    <meta
+      property="og:description"
+      content="Analytt AS hjelper organisasjoner med dataplattformer, analyse og produktutvikling."
+    />
+    <meta property="og:url" content="https://analytt.no/" />
+    <meta property="og:image" content="https://analytt.no/assets/analytt-symbol-red.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -266,12 +276,18 @@
       }
 
       .footer-inner {
-        min-height: 120px;
+        min-height: 140px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
         flex-wrap: wrap;
+        padding: 1.4rem 0;
+      }
+
+      .footer-meta {
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
 
       .footer-inner a {
@@ -436,11 +452,16 @@
 
     <footer id="contact">
       <div class="container footer-inner">
-        <div>
+        <div class="footer-meta">
           <strong>Analytt</strong><br />
-          <a href="mailto:hei@analytt.no">hei@analytt.no</a>
+          <a href="mailto:hei@analytt.no">hei@analytt.no</a><br />
+          <span>Analytt AS</span><br />
+          <span>NO 927 209 969 MVA</span><br />
+          <span>St. Halvards gate 1E, 0192 Oslo, Norge</span>
         </div>
-        <div>
+        <div class="footer-meta">
+          <a href="privacy/" data-lang="no" class="active">Personvern og cookies</a>
+          <a href="privacy/" data-lang="en">Privacy and cookies</a><br />
           <a href="https://www.linkedin.com/company/analytt/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
