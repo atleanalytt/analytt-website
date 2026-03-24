@@ -52,9 +52,10 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        background: color-mix(in srgb, var(--site-bg) 88%, white);
-        border-bottom: 1px solid color-mix(in srgb, var(--secondary-accent) 16%, transparent);
+        background: var(--secondary-accent);
+        border-bottom: 1px solid color-mix(in srgb, var(--site-bg) 26%, transparent);
         backdrop-filter: blur(6px);
+        transition: background-color 0.2s ease, border-color 0.2s ease;
       }
 
       .topbar-inner {
@@ -87,29 +88,54 @@
 
       nav a {
         text-decoration: none;
-        color: var(--secondary-accent);
+        color: var(--site-bg);
         font-weight: 600;
+        transition: color 0.2s ease;
       }
 
       .lang-toggle {
-        border: 1px solid var(--secondary-accent);
+        border: 1px solid var(--site-bg);
         border-radius: 999px;
         overflow: hidden;
         display: inline-flex;
         align-items: center;
+        transition: border-color 0.2s ease;
       }
 
       .lang-toggle button {
         border: 0;
         background: transparent;
-        color: var(--secondary-accent);
+        color: var(--site-bg);
         font: inherit;
         font-weight: 600;
         padding: 0.4rem 0.75rem;
         cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
       }
 
       .lang-toggle button.active {
+        background: var(--site-bg);
+        color: var(--secondary-accent);
+      }
+
+      .topbar.scrolled {
+        background: color-mix(in srgb, var(--site-bg) 88%, white);
+        border-bottom: 1px solid color-mix(in srgb, var(--secondary-accent) 16%, transparent);
+      }
+
+      .topbar.scrolled nav a {
+        color: var(--secondary-accent);
+      }
+
+      .topbar.scrolled .lang-toggle {
+        border-color: var(--secondary-accent);
+      }
+
+      .topbar.scrolled .lang-toggle button {
+        color: var(--secondary-accent);
+      }
+
+      .topbar.scrolled .lang-toggle button.active {
         background: var(--secondary-accent);
         color: #fff;
       }
@@ -180,8 +206,8 @@
 
       .hero-badge {
         border-radius: 24px;
-        border: 1px solid color-mix(in srgb, var(--secondary-accent) 20%, transparent);
-        background: var(--card-bg);
+        border: 1px solid color-mix(in srgb, var(--site-bg) 20%, transparent);
+        background: var(--secondary-accent);
         padding: 1.5rem;
       }
 
@@ -289,7 +315,7 @@
     <header class="topbar">
       <div class="container topbar-inner">
         <a class="brand" href="#top" aria-label="Analytt home">
-          <img src="https://analytt.no/wp-content/uploads/2021/02/Analytt-logo-RGB-turkis.png" alt="Analytt" />
+          <img id="brand-logo" src="assets/analytt-logo-red.svg" alt="Analytt" />
         </a>
         <nav aria-label="Main">
           <ul>
@@ -332,7 +358,7 @@
 
           <aside class="hero-badge" aria-label="Analytt symbol">
             <img
-              src="https://analytt.no/wp-content/uploads/2021/02/Analytt-bomaerke-RGB-roed-1.png"
+              src="assets/analytt-symbol-red.svg"
               alt="Analytt symbol"
             />
           </aside>
@@ -397,8 +423,8 @@
           <h2 data-lang="no" class="active">Om oss</h2>
           <h2 data-lang="en">About</h2>
           <p data-lang="no" class="lead active">
-            Analytt er et konsulentselskap som spesialiserer seg innen data- og analyselosninger.
-            Vi bygger egne tjenester eller hjelper med a konfigurere eksisterende verktoy.
+            Analytt er et konsulentselskap som spesialiserer seg innen data- og analyseløsninger.
+            Vi bygger egne tjenester eller hjelper med å konfigurere eksisterende verktøy.
           </p>
           <p data-lang="en" class="lead">
             Analytt is a consulting company specialized in data and analytics solutions.
@@ -424,6 +450,10 @@
       (function () {
         var buttons = document.querySelectorAll("[data-lang-btn]");
         var html = document.documentElement;
+        var topbar = document.querySelector(".topbar");
+        var brandLogo = document.getElementById("brand-logo");
+        var logoRed = "assets/analytt-logo-red.svg";
+        var logoTurquoise = "assets/analytt-logo-turquoise.svg";
 
         function setLanguage(lang) {
           html.lang = lang === "no" ? "no" : "en";
@@ -451,6 +481,15 @@
 
         var initialLang = localStorage.getItem("analytt-lang") || "no";
         setLanguage(initialLang);
+
+        function updateTopbarTheme() {
+          var scrolled = window.scrollY > 24;
+          topbar.classList.toggle("scrolled", scrolled);
+          brandLogo.src = logoRed;
+        }
+
+        updateTopbarTheme();
+        window.addEventListener("scroll", updateTopbarTheme, { passive: true });
       })();
     </script>
   </body>

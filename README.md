@@ -29,3 +29,15 @@ Project-site URL format:
 ## Deploy updates
 
 Push changes to `main` and GitHub Pages rebuilds automatically.
+
+## Run locally
+
+From the repository root:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open:
+
+- `http://127.0.0.1:4173`
